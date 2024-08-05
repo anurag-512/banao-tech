@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Doctors</h2>
+<ul>
+    {% for doctor in doctors %}
+        <li>
+            <img src="{{ doctor.profile_picture.url }}" alt="Profile Picture" style="width:50px;height:50px;">
+            <p>{{ doctor.user.get_full_name }}</p>
+            <a href="{% url 'book_appointment' doctor.user_id %}">Book Appointment</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
